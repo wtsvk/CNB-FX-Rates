@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  title: 'CNB FX Rates API Table'
+  description: 'Service generate FX currency rates'
+  version: 0.0.0.1
+paths:
+  /:
+    get:
+      description: HomePage (hello world) page
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloWorld'
+  /rates:
+    get:
+      description: Rates for the current day
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rates'
+        '500':
+          description: Application Error
+  /rates/{date}:
+    get:
+      description: Rates for the current day
+      parameters:
+        - in: path
+          name: date
+          schema:
+            type: string
+            example: '2022-12-08'
+          description: Requested date in YYYY-MM-DD format
+          required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rates'
+        '500':
+          description: Application Error
+
+servers:
+  - url: http://localhost
+components:
+  schemas:
+    HelloWorld:
+      type: object
+      description: 'Hello World'
+      properties:
+        response:
+          type: string
+          example: Hello world!
+        code:
+          type: integer
+          example: 200
+    Rates:
+      type: object
+      description: 'Daily Rates'
+      properties:
+        response:
+          type: object
+          properties:
+            date:
+              type: string
+              example: '2023-12-14'
+            code:
+              type: string
+              example: '#241'
+            rates:
+              type: array
+              items:
+                  $ref: '#/components/schemas/Rate'
+        code:
+          type: integer
+          example: 200
+    Rate:
+      type: object
+      description: 'Daily Rate for specific Currency'
+      properties:
+        code:
+          type: string
+          example: 'BGN'
+        country:
+          type: string
+          example: 'Bulharsko'
+        millionCZK:
+          type: number
+          example: 80115.36612722321
+
