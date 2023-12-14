@@ -5,7 +5,8 @@ This service is connected to CNB API and downloading the current or past FX list
 * https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt
 * https://www.cnb.cz/cs/financni-trhy/devizovy-trh/kurzy-devizoveho-trhu/kurzy-devizoveho-trhu/denni_kurz.txt?date=04.12.2023
 
-It is simple app responding you using json. Here is the sample of response
+It is simple app responding you using json. There is swagger docs available under [resources/docs/swagger.yaml](resources/docs/swagger.yaml).
+
 
 ```json
 {
