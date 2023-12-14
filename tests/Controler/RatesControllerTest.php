@@ -28,7 +28,7 @@ final class RatesControllerTest extends TestCase
 
     public function testResponse(): void
     {
-        $body = file_get_contents(__DIR__ . '/Fixtures/cnb-fx-response.txt');
+        $body = (string) file_get_contents(__DIR__ . '/Fixtures/cnb-fx-response.txt');
         $this->client->setResponseFactory([
             new MockResponse($body),
         ]);

@@ -18,7 +18,6 @@ final class ApiFacadeTest extends TestCase
 {
     private MockHttpClient $client;
     private ApiFacade $apiFacade;
-    private RatesController $controller;
 
     protected function setUp(): void
     {
@@ -56,6 +55,7 @@ final class ApiFacadeTest extends TestCase
 
         $result = $this->apiFacade->parse();
         $date = DateTimeImmutable::createFromFormat('Y-m-d', '2023-12-14');
+        self::assertInstanceOf(DateTimeImmutable::class, $date);
         $expectedResult = new DailyRateCollection($date, '#241', []);
 
         self::assertEquals($expectedResult, $result);
@@ -69,6 +69,7 @@ final class ApiFacadeTest extends TestCase
 
         $result = $this->apiFacade->parse();
         $date = DateTimeImmutable::createFromFormat('Y-m-d', '2023-12-14');
+        self::assertInstanceOf(DateTimeImmutable::class, $date);
         $expectedResult = new DailyRateCollection($date, '#241', [
             new DailyRate('Austrálie', 'dolar', 1, 'AUD', 14.993),
         ]);
