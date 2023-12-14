@@ -29,12 +29,11 @@ It is simple app responding you using json. There is swagger docs available unde
 
 - PHP >= 8.1
 - PHP ext JSON
-- PHP ext APCU (currently not implemented, but possible usefull to cache CNB API responses)
 - Symfony components (cache, serializer, http-foundation, http-client, dotenv)
 
 ### SPL Autoloader
 
-SPL Autoloader is implemented using composer, [see autoload section in composer.json ](composer.json).
+SPL Autoloader is implemented using composer, [see autoload section in composer.json ](composer.json#L25).
 
 ### Routing
 
@@ -71,3 +70,4 @@ Now the service should run locally on port 8000, you could try to visit
 - make more unit tests
 - make better error handling (ie transport errors)
 - use caching for routing + api requests
+- make some fronted table to display results
